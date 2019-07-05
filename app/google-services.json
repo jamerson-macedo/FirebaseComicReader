@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "136094988839",
+    "firebase_url": "https://fir-comicreader-5423e.firebaseio.com",
+    "project_id": "fir-comicreader-5423e",
+    "storage_bucket": "fir-comicreader-5423e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136094988839:android:a0e9bbade89a9cda",
+        "android_client_info": {
+          "package_name": "com.jmdevelopers.firebasecomicreader"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "136094988839-3sf1tanf2l5pjm323v3jbef84cggv7t2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jmdevelopers.firebasecomicreader",
+            "certificate_hash": "a575a5fcd0ff9d71d1cf673ddc9279f0aa4ad94d"
+          }
+        },
+        {
+          "client_id": "136094988839-bjojl73k8526fqkvl175oh62vn9mrg9i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAVSQSbdXJpTzfxA189tXAyzbYNsBzZzQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "136094988839-bjojl73k8526fqkvl175oh62vn9mrg9i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
