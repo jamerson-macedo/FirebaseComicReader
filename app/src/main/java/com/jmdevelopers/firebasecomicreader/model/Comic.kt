@@ -1,8 +1,8 @@
 package com.jmdevelopers.firebasecomicreader.model
 
 class Comic {
-    var name: String? =null
-    var photo: String? =null
-    var category:String?=null
-    var chapters:List<Chapter>?=null
+    var Name: String? =null
+    var Image: String? =null
+    var Category:String?=null
+    var Chapters:List<Chapter>?=null
 }

@@ -25,14 +25,19 @@ class MyComicAdapter(internal var context: Context, internal var comicList: List
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        Picasso.get().load(comicList[position].photo).into(holder.imagemview)
-        holder.textView.text=comicList[position].name
+        Picasso.get().load(comicList[position].Image).into(holder.imagemview)
+        holder.textView.text = comicList[position].Name
     }
 
     class MyViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
-        var imagemview: ImageView = itemview.findViewById(R.id.comic_image) as ImageView
-        var textView: TextView = itemview.findViewById(R.id.textcomic) as TextView
+        var imagemview: ImageView
+        var textView: TextView
 
+        init {
+            imagemview=itemview.findViewById(R.id.comic_image) as ImageView
+            textView= itemview.findViewById(R.id.comic_name) as TextView
+
+        }
 
     }
 }
