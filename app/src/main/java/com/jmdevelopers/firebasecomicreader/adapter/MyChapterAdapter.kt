@@ -1,14 +1,17 @@
 package com.jmdevelopers.firebasecomicreader.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
+import com.jmdevelopers.firebasecomicreader.Common
 import com.jmdevelopers.firebasecomicreader.IRecyclerItemClick
 import com.jmdevelopers.firebasecomicreader.R
+import com.jmdevelopers.firebasecomicreader.ViewComicActivity
 import com.jmdevelopers.firebasecomicreader.model.Chapter
 import kotlinx.android.synthetic.main.chapter_item.view.*
 import java.lang.StringBuilder
@@ -30,7 +33,9 @@ class MyChapterAdapter(internal val context: Context, internal val listchapter: 
 
         holder.setonclick(object :IRecyclerItemClick{
             override fun onclick(view: View, position: Int) {
-                //
+                Common.select_chapter=listchapter[position]
+                Common.chapter_index=position
+                context.startActivity(Intent(context,ViewComicActivity::class.java))
             }
 
         })
