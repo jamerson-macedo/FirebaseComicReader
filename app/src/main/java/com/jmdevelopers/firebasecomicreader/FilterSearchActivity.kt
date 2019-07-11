@@ -14,6 +14,7 @@ import com.jmdevelopers.firebasecomicreader.adapter.MyComicAdapter
 import com.jmdevelopers.firebasecomicreader.model.Comic
 import kotlinx.android.synthetic.main.activity_filter_search.*
 import kotlinx.android.synthetic.main.dialog_filter.*
+import kotlinx.android.synthetic.main.dialog_search.*
 import java.util.*
 import java.util.zip.Inflater
 import kotlin.collections.ArrayList
@@ -37,7 +38,7 @@ class FilterSearchActivity : AppCompatActivity() {
     }
 
     @SuppressLint("InflateParams")
-    private fun showSearchDialog() {
+    private fun showoptionDialog() {
         val alertDialog = AlertDialog.Builder(this)
         alertDialog.setTitle("Selecione a categoria")
         val inflater = this.layoutInflater
@@ -66,7 +67,7 @@ class FilterSearchActivity : AppCompatActivity() {
                 val chip = chipGroup.getChildAt(k) as Chip
                 filter_key.add(chip.text.toString())
             }
-            Collections.sort(filter_key)
+            filter_key.sort()
             for (key in filter_key) {
                 filter_query.append(key).append(",")
             }
@@ -101,7 +102,39 @@ class FilterSearchActivity : AppCompatActivity() {
 
     }
 
-    private fun showoptionDialog() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    private fun showSearchDialog() {
+        val alertDialog = AlertDialog.Builder(this)
+        alertDialog.setTitle("Selecione a categoria")
+        val inflater = this.layoutInflater
+        val search_layout = inflater.inflate(R.layout.dialog_search, null)
+       val edt_search =search_layout.findViewById<View>(R.id.edt_search) as EditText
+        alertDialog.setView(search_layout)
+        alertDialog.setNegativeButton("CANCEL") { dialog: DialogInterface?, which: Int -> dialog?.dismiss() }
+        alertDialog.setPositiveButton("SEARCH") { dialog: DialogInterface?, which: Int ->
+            fetchsearchComic(edt_search.text.toString())
+        }
+
+        alertDialog.show()
+
+
+    }
+
+    private fun fetchsearchComic(search: String) {
+        val comic_searched= ArrayList<Comic>()
+        for (comic in Common.comiclist) {
+            if (comic.Name!=null){
+                if(comic.Name!!.contains(search)){
+                    comic_searched.add(comic)
+                }
+            }
+        }
+        if(comic_searched.size>0){
+            recycler_filter_chapter.adapter=MyComicAdapter(this,comic_searched)
+        }else{
+            Toast.makeText(this,"no result",Toast.LENGTH_LONG).show()
+        }
+
+
+
     }
 }
