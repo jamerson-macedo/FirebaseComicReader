@@ -2,6 +2,7 @@ package com.jmdevelopers.firebasecomicreader
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.jmdevelopers.firebasecomicreader.model.Chapter
 import com.wajahatkarim3.easyflipviewpager.BookFlipPageTransformer
@@ -12,9 +13,12 @@ class ViewComicActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_comic)
+        // leva para o primiro
         back.setOnClickListener {
 
             if (Common.chapter_index == 0) {
+                // quando for o primeiro
+                Log.i("chapterindex", Common.chapter_index.toString())
                 Toast.makeText(this, "Voce esta lendo o primeiro capitulo", Toast.LENGTH_LONG).show()
             } else {
                 Common.chapter_index--
@@ -23,7 +27,9 @@ class ViewComicActivity : AppCompatActivity() {
             }
         }
         next.setOnClickListener {
+            // leva para o ultimo capitulo do comic
             if (Common.chapter_index == Common.listchapter.size - 1) {
+                Log.i("chapterindexnext", Common.chapter_index.toString())
                 Toast.makeText(this, "Voce esta lendo o ultimo capitulo", Toast.LENGTH_LONG).show()
             } else {
                 Common.chapter_index++
@@ -50,6 +56,7 @@ class ViewComicActivity : AppCompatActivity() {
             }
 
         } else {
+            // se nao tiver capitulos
             Toast.makeText(this, "esse é o ultimo capitulo do autor", Toast.LENGTH_LONG).show()
 
         }

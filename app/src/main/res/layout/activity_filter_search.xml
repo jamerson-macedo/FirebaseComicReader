@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:background="#000"
+		android:layout_height="match_parent"
+		tools:context=".FilterSearchActivity">
+	<LinearLayout
+			android:orientation="vertical"
+			android:layout_above="@+id/bottom_app_bar"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+		<TextView android:layout_width="match_parent"
+				android:id="@+id/textcomic"
+				android:layout_height="wrap_content"
+				android:text="ALL COMIC"
+				android:textSize="20sp"
+				android:padding="8dp"
+				android:textColor="#fff"
+				android:textStyle="bold"
+				
+				/>
+		<androidx.recyclerview.widget.RecyclerView
+				android:id="@+id/recycler_filter_chapter"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
+	
+	
+	</LinearLayout>
+	<com.google.android.material.bottomnavigation.BottomNavigationView
+			android:layout_width="match_parent"
+			android:id="@+id/bottom_app_bar"
+			app:itemTextColor="#fff"
+			app:itemIconTint="#fff"
+			app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+			app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+			
+			android:background="@color/colorPrimaryDark"
+			android:layout_alignParentBottom="true"
+			android:layout_height="wrap_content">
+		
+	</com.google.android.material.bottomnavigation.BottomNavigationView>
+
+</RelativeLayout>

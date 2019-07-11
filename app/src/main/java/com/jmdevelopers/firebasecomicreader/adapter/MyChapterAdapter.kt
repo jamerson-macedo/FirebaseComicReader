@@ -2,6 +2,7 @@ package com.jmdevelopers.firebasecomicreader.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,7 +35,10 @@ class MyChapterAdapter(internal val context: Context, internal val listchapter: 
         holder.setonclick(object :IRecyclerItemClick{
             override fun onclick(view: View, position: Int) {
                 Common.select_chapter=listchapter[position]
+                Log.i("selectchapter", Common.select_chapter.toString())
                 Common.chapter_index=position
+                Log.i("chapterindex", Common.chapter_index.toString())
+
                 context.startActivity(Intent(context,ViewComicActivity::class.java))
             }
 

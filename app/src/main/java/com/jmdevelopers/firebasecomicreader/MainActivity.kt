@@ -1,5 +1,6 @@
 package com.jmdevelopers.firebasecomicreader
 
+import android.content.Intent
 import android.os.Bundle
 
 import android.view.View
@@ -55,10 +56,15 @@ class MainActivity : AppCompatActivity(), IBannerLoadDoneListener, IComicLoadDon
             loadbanner()
             loadcomic()
         }
+
         // iniciando o slider
         Slider.init(PicassoImageLoading())
         recycler_commic.setHasFixedSize(true)
         recycler_commic.layoutManager= GridLayoutManager(this@MainActivity,2)
+        search.setOnClickListener {
+
+            startActivity(Intent(this,FilterSearchActivity::class.java))
+        }
     }
 
     private fun loadcomic() {

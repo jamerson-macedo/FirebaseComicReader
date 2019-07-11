@@ -31,7 +31,7 @@ class MyViewPageAdapter(internal var baseContext: Context?,internal var links: L
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val image_layout=inflater.inflate(R.layout.view_page_item,container,false)
-        val page_image=image_layout.findViewById(R.id.viewpage) as PhotoView
+        val page_image=image_layout.findViewById(R.id.photo_view) as PhotoView
         Picasso.get().load(links[position]).into(page_image)
         container.addView(image_layout!!)
         return image_layout
